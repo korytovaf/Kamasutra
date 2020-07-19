@@ -1,0 +1,27 @@
+.user {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    gap: 20px;
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    background-image: url(https://avatars.mds.yandex.net/get-pdb/1004345/f795977b-4fde-4176-a87f-4f0acba543e8/s1200?webp=false);
+    background-size: cover;
+    border-radius: 3px;
+}
+
+.user_profile {
+    list-style: none;
+}
+
+.user_profile_list {
+    margin: 10px 0;
+}
+
+.name_user {
+    font-size: 26px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}

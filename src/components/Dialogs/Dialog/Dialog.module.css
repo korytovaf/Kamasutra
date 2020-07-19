@@ -1,0 +1,24 @@
+.dialogs {
+    display: grid;
+    align-content: start;
+    border-top: 1px solid #d7d4d4;
+}
+
+.dialog {
+    padding: 10px;
+    border-bottom: 1px solid #d7d4d4;
+    cursor: pointer;
+    transition: 0.4s;
+    text-decoration: none;
+    color: black;
+}
+
+.dialog:hover {
+    background-color: gray;
+    color: white;
+}
+
+.active {
+    background-color: gray;
+    color: white;
+}

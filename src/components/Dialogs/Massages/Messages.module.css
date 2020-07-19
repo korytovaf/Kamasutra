@@ -1,0 +1,42 @@
+.massages {
+    display: grid;
+    background-color: #d7d4d4;
+    border-radius: 3px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.textmassege {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 30px;
+}
+
+.button {
+    width: 30px;
+    height: 30px;
+    background-image: url(https://ruju.ru/bitrix/templates/aspro_next/images/telegram-logo-2.png);
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.massage {
+    max-width: 280px;
+    justify-self: start;
+    padding: 20px;
+    margin: 10px;
+    background-color: #ffffff;
+    border-radius: 30px;
+}
+
+.admin {
+    justify-self: end;
+}

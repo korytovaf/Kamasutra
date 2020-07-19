@@ -1,0 +1,68 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 20px 20px 5px 20px;
+    border-radius: 3px;
+    border: 1px solid #d7d4d4;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-image: url(https://avatars.mds.yandex.net/get-pdb/1751508/5ce53352-7bf5-4b8b-801c-a4f1a7e06a0d/s1200?webp=false);
+    background-size: cover;
+}
+
+.massage {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    background-color: #f4f4f4;
+}
+
+.like {
+    display: flex;
+}
+
+.btn {
+    display: flex;
+    width: 50px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.img {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(https://www.pinclipart.com/picdir/middle/304-3043280_like-icon-png-clipart.png);
+    background-size: cover;
+}
+
+.item__post {
+    display: grid;
+    gap: 8px;
+    width: 110px;
+    font-size: 10px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-image: url(https://avatars.mds.yandex.net/get-pdb/1751508/5ce53352-7bf5-4b8b-801c-a4f1a7e06a0d/s1200?webp=false);
+    background-size: cover;
+}

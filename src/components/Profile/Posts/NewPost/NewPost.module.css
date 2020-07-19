@@ -1,0 +1,25 @@
+.post {
+    display: grid;
+    gap: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 3px;
+}
+
+.button {
+    justify-self: end;
+    width: 200px;
+    height: 38px;
+    border-radius: 3px;
+    border: none;
+    background-color: #ec9393;
+    color: white;
+    cursor: pointer;
+}
+
+.textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #d7d4d4;
+}
