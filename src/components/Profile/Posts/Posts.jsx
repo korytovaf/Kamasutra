@@ -3,7 +3,7 @@ import style from './Posts.module.css';
 import NewPost from "./NewPost/NewPost";
 import Post from "./Post/Post";
 import {connect} from "react-redux";
-import {addPost, updateNewPostTextChange} from "../../../Redax/profile-reducer";
+import {addPost, updateNewPostTextChange} from "../../../Redux/profile-reducer";
 
 const Posts = ( {postsData, newPostText, updateNewPostTextChange, addPost } ) => {
 

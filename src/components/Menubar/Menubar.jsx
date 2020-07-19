@@ -19,6 +19,9 @@ const Menubar = () => {
                     <li className={style.item}>
                         <a href='#n'>Настройки</a>
                     </li>
+                    <li className={style.item}>
+                        <NavLink activeClassName={style.active} to='/UsersContainer'>Пользователи</NavLink>
+                    </li>
                 </ul>
             </nav>
         </div>

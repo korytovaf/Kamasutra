@@ -3,7 +3,7 @@ import style from './Dialogs.module.css';
 import Messages from "./Massages/Messages";
 import Dialog from "./Dialog/Dialog";
 import {connect} from "react-redux";
-import {addMessage, onMessageChange} from "../../Redax/dialogs-reducer";
+import {addMessage, onMessageChange} from "../../Redux/dialogs-reducer";
 
 
 const Dialogs = ({dialogsData, messagesData, newMessageText, onMessageChange, addMessage}) => {

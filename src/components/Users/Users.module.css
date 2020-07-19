@@ -1,0 +1,62 @@
+.users {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.user {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.user:hover {
+    background-color: white;
+}
+
+.user__img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.user__data {
+    margin: 10px;
+}
+
+.user__name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.user__status {
+    font-size: 12px;
+}
+
+.user__friend {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    margin-left: auto;
+}
+
+.user__friend_true {
+    font-size: 12px;
+    align-self: flex-end;
+}
+
+.user__button {
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+}
+
