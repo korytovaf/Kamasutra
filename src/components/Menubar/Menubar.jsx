@@ -20,7 +20,7 @@ const Menubar = () => {
                         <a href='#n'>Настройки</a>
                     </li>
                     <li className={style.item}>
-                        <NavLink activeClassName={style.active} to='/UsersContainer'>Пользователи</NavLink>
+                        <NavLink activeClassName={style.active} to='/Users'>Пользователи</NavLink>
                     </li>
                 </ul>
             </nav>

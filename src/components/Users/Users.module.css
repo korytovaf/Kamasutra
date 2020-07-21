@@ -60,3 +60,12 @@
     cursor: pointer;
 }
 
+.paginator {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.paginatorActive {
+    font-weight: bold;
+}
+
