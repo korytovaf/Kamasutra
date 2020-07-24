@@ -3,12 +3,14 @@ const NOT_FRIEND = 'NOT-FRIEND';
 const SET_USERS = 'SET-USERS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const SET_TOTAL_COUNT = 'SET-TOTAL-COUNT';
+const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
 
 let initialState = {
     users: [],
     totalCount: 0,
-    pageSize: 100,
+    pageSize: 10,
     currentPage: 1,
+    isFetching: false,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -51,6 +53,10 @@ const usersReducer = (state = initialState, action) => {
                 ...state, totalCount: action.totalCount,
             }
 
+        case TOGGLE_IS_FETCHING:
+            return {
+                ...state, isFetching: action.isFetching,
+            }
         default:
             return state;
     }
@@ -59,8 +65,9 @@ const usersReducer = (state = initialState, action) => {
 
 export const makeFriend = (userId) => ({ type: MAKE_FRIEND, userId });
 export const notFriend = (userId) => ({ type: NOT_FRIEND, userId });
-export const setUsersAC = (users) => ({ type: SET_USERS, users });
-export const setCurrentPageAC = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
-export const setTotalCountAC = (totalCount) => ({ type: SET_TOTAL_COUNT, totalCount });
+export const setUsers = (users) => ({ type: SET_USERS, users });
+export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
+export const setTotalCount = (totalCount) => ({ type: SET_TOTAL_COUNT, totalCount });
+export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
 
 export default usersReducer;

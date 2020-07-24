@@ -1,6 +1,7 @@
 .menubar {
     grid-area: menu_bar;
     background-color: gray;
+    min-height: 100vh;
 }
 
 .list {

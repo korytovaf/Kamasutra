@@ -1,0 +1,8 @@
+.preloader {
+    display: flex;
+    justify-content: center;
+}
+
+.preloader__img {
+    height: 60px;
+}
