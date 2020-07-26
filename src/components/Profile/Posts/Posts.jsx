@@ -21,8 +21,8 @@ const Posts = ( {postsData, newPostText, updateNewPostTextChange, addPost } ) =>
 
 const mapStateToProps = (state) => {
     return {
-        postsData: state.postPage.postsData,
-        newPostText: state.postPage,
+        postsData: state.profilePage.postsData,
+        newPostText: state.profilePage,
     }
 
 }

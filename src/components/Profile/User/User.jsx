@@ -1,18 +1,24 @@
 import React from 'react';
 import style from './User.module.css';
+import Preloader from "../../Preloader/Preloader";
+import avatarPlaceholder from '../../../asseds/img/placeholder.jpg'
 
-const User = () => {
+const User = (props) => {
+
+    if (!props.profile) {
+        return <Preloader />
+    }
+
     return (
         <div className={style.user}>
-
-            <div className={style.avatar}></div>
-
+            <img
+                className={style.avatar}
+                src={ props.profile.photos.large !== null ? props.profile.photos.large : avatarPlaceholder }
+                alt={props.profile.fullName}
+            />
             <ul className={style.user_profile}>
-                <li className={`${style.user_profile_list} ${style.name_user}`}>Александр К.</li>
-                <li className={style.user_profile_list}>Дата рождения: 25.07.1982</li>
-                <li className={style.user_profile_list}>Город: Иваново</li>
-                <li className={style.user_profile_list}>Email: kaf1@mail.ru</li>
-                <li className={style.user_profile_list}>Web site: www.kaf1.ru</li>
+                <li className={`${style.user_profile_list} ${style.name_user}`}>{props.profile.fullName}</li>
+                <li className={style.user_profile_list}>{props.profile.aboutMe !== null ?`"${props.profile.aboutMe}"` : ""}</li>
             </ul>
         </div>
     );

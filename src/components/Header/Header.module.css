@@ -1,4 +1,23 @@
 .header {
     grid-area: heaedr;
     background-color: #d7d4d4;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.auth {
+    margin-left: auto;
+    padding: 20px;
+}
+
+.auth__button {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    text-decoration: none;
+}
+
+.auth__button:hover {
+    background-color: grey;
 }

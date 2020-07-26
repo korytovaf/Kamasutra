@@ -1,6 +1,6 @@
 import React from "react";
 import s from './Preloader.module.css';
-import loader from "../../asseds/img/Ellipsis-2.6s-200px.svg";
+import loader from "../../asseds/img/Preloader.svg";
 
 const Preloader = () => {
     return (

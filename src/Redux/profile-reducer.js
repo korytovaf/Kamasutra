@@ -1,5 +1,6 @@
 const UPDATE_NEW_POST_TEXT_CHANGE = 'UPDATE-NEW-POST-TEXT-CHANGE';
 const ADD_POST = 'ADD-POST';
+const SET_USER_PROFILE = 'SET-USER-PROFILE';
 
 let initialState = {
     postsData: [
@@ -8,6 +9,7 @@ let initialState = {
         {id: 3, login: 'admin', post: 'Третий пост', like: 20, date: '17/07/2020 22:00'},
     ],
     newPostText: '',
+    profile: null,
 };
 
 
@@ -27,14 +29,23 @@ const profileReducer = (state = initialState, action) => {
             stateCopy.newPostText = '';
             return stateCopy;
         }
+
         case UPDATE_NEW_POST_TEXT_CHANGE: {
             stateCopy.newPostText = action.value;
             return stateCopy;
         }
+
+        case SET_USER_PROFILE: {
+            stateCopy.profile = action.profile
+            return stateCopy;
+        }
+
         default:
             return state;
     }
 };
+
+
 
 
 export const updateNewPostTextChange = (value) => ({
@@ -42,13 +53,14 @@ export const updateNewPostTextChange = (value) => ({
     value: value.currentTarget.value
 });
 
-
 export const addPost = ( id, login, post, data ) => ({
     type: ADD_POST,
-    id,
-    login,
-    post,
-    data,
+    id, login, post, data,
+});
+
+export const setUserProfile = ( profile ) => ({
+    type: SET_USER_PROFILE,
+    profile
 });
 
 

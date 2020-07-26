@@ -1,6 +1,7 @@
 import React from "react";
 import s from './Users.module.css';
-import avatarPlaceholder from '../../asseds/img/placeholder.jpg'
+import avatarPlaceholder from '../../asseds/img/placeholder.jpg';
+import {NavLink} from "react-router-dom";
 
 const User = (props) => {
 
@@ -14,7 +15,7 @@ const User = (props) => {
         <div>
             <div>
                 {pages.map(p => {
-                    if (p === props.currentPage - 3) {
+                    if (p === props.currentPage - 6) {
                         return (
                             <span key={p}>
                                 <span className={s.paginator} onClick={(e) => props.onPageChanged(p)}>1</span>
@@ -22,13 +23,13 @@ const User = (props) => {
                             </span>
                         )
                     }
-                    if (p < props.currentPage - 3) {
+                    if (p < props.currentPage - 6) {
                         return null
                     }
-                    if (p === props.currentPage + 3) {
+                    if (p === props.currentPage + 6) {
                         return <span key={p}> ... из {props.totalCount}</span>
                     }
-                    if (p > props.currentPage + 3) {
+                    if (p > props.currentPage + 6) {
                         return null
                     }
 
@@ -50,10 +51,12 @@ const User = (props) => {
 
                         return (
                             <li className={s.user} key={user.id}>
-                                <img className={s.user__img}
-                                     src={user.photos.small != null ? user.photos.small : avatarPlaceholder}
-                                     alt={user.name}
-                                />
+                                <NavLink to={`/Profile/${user.id}`}>
+                                    <img className={s.user__img}
+                                         src={user.photos.small != null ? user.photos.small : avatarPlaceholder}
+                                         alt={user.name}
+                                    />
+                                </NavLink>
                                 <div className={s.user__data}>
                                     <div className={s.user__name}>{user.name}</div>
                                     <div className={s.user__status}>{user.status}</div>
