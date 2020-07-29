@@ -60,6 +60,15 @@
     cursor: pointer;
 }
 
+.user__button:hover {
+    background-color: #525252;
+}
+
+.user__button:disabled {
+    background-color: darkgray;
+    cursor: wait;
+}
+
 .paginator {
     padding: 5px;
     cursor: pointer;

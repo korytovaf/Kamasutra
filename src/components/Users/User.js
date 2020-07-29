@@ -18,7 +18,10 @@ const User = (props) => {
                     if (p === props.currentPage - 6) {
                         return (
                             <span key={p}>
-                                <span className={s.paginator} onClick={(e) => props.onPageChanged(p)}>1</span>
+                                <span
+                                    className={s.paginator}
+                                    onClick={(e) => props.onPageChanged(p)}
+                                >1</span>
                                 <span>...</span>
                             </span>
                         )
@@ -68,13 +71,17 @@ const User = (props) => {
                                     {
                                         user.followed
                                             ?
-                                            <button onClick={() => props.notFriend(user.id)}
-                                                    className={s.user__button}>Удалить из
-                                                друзей</button>
+                                            <button
+                                                disabled={props.followingInProgress.some(id => id === user.id)}
+                                                className={s.user__button}
+                                                onClick={() => { props.deleteFromFriends(user.id) }}
+                                            >Удалить из друзей</button>
                                             :
-                                            <button onClick={() => props.makeFriend(user.id)}
-                                                    className={s.user__button}>Добавить
-                                                в друзья</button>
+                                            <button
+                                                disabled={props.followingInProgress.some(id => id === user.id)}
+                                                className={s.user__button}
+                                                onClick={ () => { props.addToFriend(user.id) }}
+                                            >Добавить в друзья</button>
                                     }
                                 </div>
                             </li>
