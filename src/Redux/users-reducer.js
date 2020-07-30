@@ -48,7 +48,7 @@ const usersReducer = (state = initialState, action) => {
                 ...state, users: action.users
             }
 
-        case SET_CURRENT_PAGE:debugger
+        case SET_CURRENT_PAGE:
             return {
                 ...state, currentPage: action.currentPage,
             }
@@ -92,6 +92,7 @@ export const getUsers = (currentPage, pageSize) => {
             dispatch(toggleIsFetching(false));
             dispatch(setUsers(data.items));
             dispatch(setTotalCount(data.totalCount));
+            dispatch(setCurrentPage(currentPage));
         });
     }
 }

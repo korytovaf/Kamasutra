@@ -60,30 +60,42 @@ const User = (props) => {
                                          alt={user.name}
                                     />
                                 </NavLink>
+
                                 <div className={s.user__data}>
                                     <div className={s.user__name}>{user.name}</div>
                                     <div className={s.user__status}>{user.status}</div>
                                 </div>
-                                <div className={s.user__friend}>
-                                    <div className={s.user__friend_true}>
-                                        {user.followed ? 'вы друзья' : ''}
-                                    </div>
-                                    {
-                                        user.followed
+
+                                {!props.isAuth
+                                    ? ''
+                                    :
+                                    <div className={s.user__friend}>
+
+                                        <div className={s.user__friend_true}>
+                                            {user.followed ? 'вы друзья' : ''}
+                                        </div>
+
+                                        {user.followed
                                             ?
                                             <button
                                                 disabled={props.followingInProgress.some(id => id === user.id)}
                                                 className={s.user__button}
-                                                onClick={() => { props.deleteFromFriends(user.id) }}
+                                                onClick={() => {
+                                                    props.deleteFromFriends(user.id)
+                                                }}
                                             >Удалить из друзей</button>
                                             :
                                             <button
                                                 disabled={props.followingInProgress.some(id => id === user.id)}
                                                 className={s.user__button}
-                                                onClick={ () => { props.addToFriend(user.id) }}
+                                                onClick={() => {
+                                                    props.addToFriend(user.id)
+                                                }}
                                             >Добавить в друзья</button>
-                                    }
-                                </div>
+                                        }
+                                    </div>
+                                }
+
                             </li>
                         );
                     })
