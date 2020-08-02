@@ -1,16 +1,28 @@
 import React from 'react';
 import style from './NewPost.module.css';
+import { Field, reduxForm } from 'redux-form'
 
-const NewPost = ({updateNewPostTextChange, valueNewPostText, addPost}) => {
+const NewPostForm = (props) => {
 
     return (
-        <div className={style.post}>
+        <form onSubmit={props.handleSubmit} className={style.post}>
             <h3>Мой новый пост</h3>
-            <textarea onChange={updateNewPostTextChange} rows='5' className={style.textarea}
-                      value={valueNewPostText}/>
-            <button onClick={addPost} className={style.button}>Опубликовать</button>
-        </div>
+            <Field
+                rows='5'
+                className={style.textarea}
+                component='textarea'
+                name='addNewPost'
+            />
+            <button className={style.button}>Опубликовать</button>
+        </form>
     );
+}
+
+const NewPostFormRedux = reduxForm({ form: 'newPost' })(NewPostForm)
+
+const NewPost = (props) => {
+    const onSubmit = (value) => { props.addPost(value.addNewPost) }
+    return <NewPostFormRedux onSubmit={onSubmit}/>
 }
 
 export default NewPost

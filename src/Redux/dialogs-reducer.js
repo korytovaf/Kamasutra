@@ -1,5 +1,4 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
-const ON_MESSAGE_CHANGE = 'ON-MESSAGE-CHANGE';
 
 let initialState = {
     dialogsData: [
@@ -16,9 +15,7 @@ let initialState = {
         {id: 2, login: 'admin', message: 'Как дела!'},
         {id: 3, login: 'kris', message: 'Все нормально!'},
         {id: 4, login: 'admin', message: 'Изучаю реакт на IT-Kamasutra.'}
-    ],
-
-    newMessageText: ''
+    ]
 }
 
 const dialogReducer = (state = initialState, action) => {
@@ -30,15 +27,10 @@ const dialogReducer = (state = initialState, action) => {
             let newMessage = {
                 id: 10,
                 login: 'admin',
-                message: stateCopy.newMessageText
+                message: action.newMessage
             }
             stateCopy.messagesData = [...state.messagesData]
             stateCopy.messagesData.push(newMessage);
-            stateCopy.newMessageText = '';
-            return stateCopy;
-
-        case ON_MESSAGE_CHANGE:
-            stateCopy.newMessageText = action.value;
             return stateCopy;
 
         default:
@@ -46,7 +38,6 @@ const dialogReducer = (state = initialState, action) => {
     }
 }
 
-export const addMessage = (id, login, message) => ({type: ADD_MESSAGE, id, login, message})
-export const onMessageChange = (value) => ({type: ON_MESSAGE_CHANGE, value: value.currentTarget.value})
+export const addMessage = (newMessage) => ({type: ADD_MESSAGE, newMessage})
 
 export default dialogReducer;

@@ -22,5 +22,8 @@
 .name_user {
     font-size: 26px;
     font-weight: 400;
-    margin-bottom: 30px;
+}
+
+.input {
+    padding: 5px;
 }
