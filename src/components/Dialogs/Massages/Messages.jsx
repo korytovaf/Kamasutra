@@ -1,6 +1,8 @@
 import React from "react";
 import style from './Messages.module.css';
 import {Field, reduxForm} from 'redux-form';
+import {maxLength, required} from "../../../Utils/validators";
+import {Textarea} from "../../common/FormControls/FormControls";
 
 const Messages = (props) => {
 
@@ -22,11 +24,20 @@ const Messages = (props) => {
     );
 }
 
+const maxLength5 = maxLength(5)
+
 const MessageForm = (props) => {
-    return <form onSubmit={props.handleSubmit} className={style.wrapper}>
-        <Field rows='1' className={style.text__message} component={'textarea'} name={'newMessage'}/>
-        <button className={style.button}></button>
-    </form>
+
+    return (
+        <form onSubmit={props.handleSubmit} className={style.wrapper}>
+            <Field rows='1'
+                   component={Textarea}
+                   name='newMessage'
+                   validate={[required, maxLength5]}
+            />
+            <button className={style.button}></button>
+        </form>
+    );
 }
 
 const MessageFormRedux = reduxForm({form: 'messages'})(MessageForm)

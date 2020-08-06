@@ -6,6 +6,15 @@
     border-radius: 3px;
 }
 
+.post textarea {
+    height: 100px;
+}
+
+.post span {
+    left: 0;
+    bottom: -30px;
+}
+
 .button {
     justify-self: end;
     width: 200px;
@@ -17,9 +26,6 @@
     cursor: pointer;
 }
 
-.textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 3px;
-    border: 1px solid #d7d4d4;
-}
+
+
+

@@ -1,16 +1,13 @@
 import {authAPI} from "../api/api";
+import {stopSubmit} from "redux-form";
 
 const SET_USER_DATA = 'SET-USER-DATA';
-const SET_LOGIN = 'SET-LOGIN';
 
 let initialState = {
-    data: {
-        id: null,
-        login: null,
-        email: null,
-    },
-    isAuth: false,
+    id: null,
     login: null,
+    email: null,
+    isAuth: false,
 };
 
 
@@ -19,14 +16,7 @@ const authReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case SET_USER_DATA: {
-            stateCopy.data = action.data;
-            stateCopy.isAuth = true;
-            return stateCopy;
-        }
-
-        case SET_LOGIN: {
-            stateCopy.login = action.userId;
-            stateCopy.isAuth = true;
+            stateCopy = action.payload;
             return stateCopy;
         }
 
@@ -36,37 +26,47 @@ const authReducer = (state = initialState, action) => {
 };
 
 
-export const setAuthUserData = (id, login, email) => ({
+export const setAuthUserData = (id, login, email, isAuth) => ({
     type: SET_USER_DATA,
-    data: {id, login, email}
+    payload: {id, login, email, isAuth}
 });
-
-export const setLogin = (userId) => ({
-    type: SET_LOGIN,
-    userId
-});
-
 
 export const getAuthUser = (data) => {
     return (dispatch) => {
         authAPI.getAuth().then(data => {
             if (data.resultCode === 0) {
                 let { id, login, email } = data.data
-                dispatch(setAuthUserData(id, login, email))
+                dispatch(setAuthUserData(id, login, email, true))
             }
         })
     }
 }
 
-export const getAuthLogin = (data) => {
+
+export const login = (email, password, rememberMe) => {
     return (dispatch) => {
-        authAPI.loginAuth().then(data => {
+
+        authAPI.Login(email, password, rememberMe).then(data => {
             if (data.resultCode === 0) {
-                let { userId } = data.login
-                dispatch(setLogin(userId))
+                dispatch(getAuthUser()) //отправляем запрос о том кто залогинился
+            }
+            else {
+                let messages = data.messages.length > 0 ? data.messages[0] : 'Error'
+                dispatch(stopSubmit('login', {_error: messages}));
+            };
+        })
+    }
+}
+
+export const logout = () => {
+    return (dispatch) => {
+        authAPI.Logout().then(data => {
+            if (data.resultCode === 0) {
+                dispatch(setAuthUserData(null, null, null, false))
             }
         })
     }
 }
+
 
 export default authReducer;

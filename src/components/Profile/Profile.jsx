@@ -8,7 +8,6 @@ const Profile = (props) => {
 
     return (
         <div className={style.profile}>
-            {/*<div className={style.image}></div>*/}
             <User profile={props.profile.profile} status={props.status} updateUserStatus={props.updateUserStatus} />
             <Posts />
         </div>

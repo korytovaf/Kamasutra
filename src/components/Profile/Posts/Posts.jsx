@@ -15,10 +15,7 @@ const Posts = ( {postsData, addPost } ) => {
 }
 
 const mapStateToProps = (state) => {
-    return {
-        postsData: state.profilePage.postsData,
-    }
+    return { postsData: state.profilePage.postsData }
 }
-
 
 export default connect(mapStateToProps, {addPost})(Posts)
