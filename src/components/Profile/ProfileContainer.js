@@ -16,11 +16,13 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
+        const {profile, isAuth, status, updateUserStatus, userId } = this.props
         return <Profile
-            profile={this.props.profile}
-            isAuth={this.props.isAuth}
-            status={this.props.status}
-            updateUserStatus={this.props.updateUserStatus}
+            profile={profile}
+            isAuth={isAuth}
+            status={status}
+            updateUserStatus={updateUserStatus}
+            userMi={userId}
         />
     }
 }

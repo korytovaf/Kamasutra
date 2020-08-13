@@ -1,0 +1,14 @@
+.paginator {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.paginator__wrapper {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.paginatorActive {
+    font-weight: bold;
+    border-bottom: 1px solid red;
+}

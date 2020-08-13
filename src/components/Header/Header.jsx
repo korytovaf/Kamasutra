@@ -1,23 +1,15 @@
 import React from 'react';
 import s from './Header.module.css';
-
 import logo from '../../asseds/img/logo.png'
-import {NavLink} from "react-router-dom";
+import MiProfile from "./MiProfile/MiProfile";
 
-const Header = (props) => {
+const Header = ({ isAuth, logout, profileMi }) => {
+
     return (
         <header className={s.header}>
             <img alt='logo' src={logo}/>
             <div className={s.auth}>
-                { props.isAuth
-                    ? <div className={s.login}>
-                        <div className={s.avatar}></div>
-                        <div>{props.data.login}</div>
-                        <button onClick={props.logout} className={s.auth__button}>Выйти</button>
-                    </div>
-
-                    : <NavLink className={s.auth__button} to={'/login'}>Войти</NavLink>
-                }
+                <MiProfile isAuth={isAuth} logout={logout} profileMi={profileMi} />
             </div>
         </header>
     );

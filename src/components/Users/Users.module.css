@@ -52,6 +52,7 @@
 }
 
 .user__button {
+    width: 150px;
     padding: 10px;
     border-radius: 3px;
     border: none;
@@ -67,14 +68,5 @@
 .user__button:disabled {
     background-color: darkgray;
     cursor: wait;
-}
-
-.paginator {
-    padding: 5px;
-    cursor: pointer;
-}
-
-.paginatorActive {
-    font-weight: bold;
 }
 

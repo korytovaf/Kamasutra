@@ -10,14 +10,14 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./Redux/app-reducer";
-import Preloader from "./components/Preloader/Preloader";
+import Preloader from "./components/common/Preloader/Preloader";
 
 class App extends React.Component {
 
     componentDidMount() { this.props.initializeApp() }
 
     render() {
-        if (!this.props.initial) {
+        if (!this.props.initial ) {
             return <Preloader />
         }
         return (

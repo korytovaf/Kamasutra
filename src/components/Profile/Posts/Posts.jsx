@@ -6,6 +6,7 @@ import {addPost} from "../../../Redux/profile-reducer";
 import NewPost from "./NewPost/NewPost";
 
 const Posts = ( {postsData, addPost } ) => {
+
     return (
         <div className={style.posts}>
             <NewPost addPost={addPost}  />

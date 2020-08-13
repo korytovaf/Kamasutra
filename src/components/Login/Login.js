@@ -1,8 +1,8 @@
 import React from "react";
 import style from "./login.module.css"
 import styleForm from "./../../components/common/FormControls/FormControls.module.css"
-import {Field, reduxForm} from 'redux-form'
-import {Input} from "../common/FormControls/FormControls";
+import {reduxForm} from 'redux-form'
+import {createField, Input} from "../common/FormControls/FormControls";
 import {maxLength, required} from "../../Utils/validators";
 import {connect} from "react-redux";
 import {login} from "../../Redux/auth-reducer";
@@ -14,9 +14,9 @@ const LoginForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit} className={style.wrapper}>
             <div className={styleForm.loginError}>{props.error}</div>
-            <Field name='email' component={Input} validate={[required, maxLength20]}/>
-            <Field name='password' type='password' component={Input} validate={[required, maxLength20]} />
-            <Field className={style.rememberMi} name='rememberMi' type='checkbox' component='input'/>
+            { createField(null, Input, 'email', null, [required, maxLength20] ) }
+            { createField(null, Input, 'password', 'password', [required, maxLength20] ) }
+            { createField(`${style.rememberMi}`, 'input', 'rememberMi', 'checkbox', null ) }
             <button className={style.button}>Войти</button>
         </form>
     );

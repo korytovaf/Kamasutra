@@ -3,12 +3,11 @@ import style from './Profile.module.css';
 import Posts from "./Posts/Posts";
 import User from "./User/User";
 
-const Profile = (props) => {
-
+const Profile = ({profile, status, updateUserStatus, userMi}) => {
 
     return (
         <div className={style.profile}>
-            <User profile={props.profile.profile} status={props.status} updateUserStatus={props.updateUserStatus} />
+            <User profile={profile.profile} status={status} updateUserStatus={updateUserStatus} userMi={userMi}/>
             <Posts />
         </div>
     );
