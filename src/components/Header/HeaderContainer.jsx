@@ -6,9 +6,19 @@ import {getAuthProfileMi, logout, setAuthUserData} from "../../Redux/auth-reduce
 
 class HeaderContainer extends React.Component {
 
-    componentDidMount() {
+    refreshProfileMi() {
         let userId = this.props.userId;
         this.props.getAuthProfileMi(userId);
+    }
+
+    componentDidMount() {
+        this.refreshProfileMi()
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.userId !== prevProps.userId) {
+            this.refreshProfileMi()
+        }
     }
 
 

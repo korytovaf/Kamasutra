@@ -78,6 +78,7 @@ export const logout = () => async (dispatch) => {
     let data = await authAPI.Logout();
     if (data.resultCode === 0) {
         dispatch(setAuthUserData(null, null, null, false))
+        dispatch(setAuthProfileMi(null))
     }
 }
 
