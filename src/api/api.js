@@ -29,7 +29,7 @@ export const usersAPI = {
 }
 
 export const profileAPI = {
-    getProfile(userId) { 
+    getProfile(userId) {
         return instance
             .get(`profile/${userId}`)
             .then(response => response.data)
@@ -54,7 +54,12 @@ export const profileAPI = {
                 'Content-Type': 'multipart/form-data'
             }
         })
-    }
+    },
+
+    saveProfile(profile) {
+        return instance
+            .put(`/profile`, profile);
+    },
 }
 
 export const authAPI = {
@@ -64,15 +69,21 @@ export const authAPI = {
             .then(response => response.data)
     },
 
-    Login(email, password, rememberMe = false) {
+    Login(email, password, rememberMe = false, captcha = null) {
         return instance
-            .post(`/auth/login`, {email, password, rememberMe})
+            .post(`auth/login`, {email, password, rememberMe, captcha})
             .then(response => response.data);
     },
 
     Logout() {
         return instance
-            .delete(`/auth/login`)
+            .delete(`auth/login`)
             .then(response => response.data);
-    }
+    },
+
+    captcha() {
+        return instance
+            .get(`security/get-captcha-url`)
+            .then(response => response.data);
+    },
 }
