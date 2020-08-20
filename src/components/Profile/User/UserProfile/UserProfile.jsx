@@ -9,6 +9,7 @@ const UserProfile = ({profile, statusUser, isOwner, updateUserStatus, editMode, 
     const activateEditMode = () => {
         setEditMode(true)
     }
+
     const deactivateEditMode = () => {
         setEditMode(false)
     }
@@ -22,8 +23,12 @@ const UserProfile = ({profile, statusUser, isOwner, updateUserStatus, editMode, 
             <ProfileStatusWithHocks statusUser={statusUser} updateUserStatus={updateUserStatus} isOwner={isOwner}/>
             {
                 editMode
-                    ? <ProfileDataFormRedux initialValues={profile} onSubmit={onSubmit} profile={profile}
-                                            deactivateEditMode={deactivateEditMode}/>
+                    ? <ProfileDataFormRedux
+                        initialValues={profile}
+                        onSubmit={onSubmit}
+                        profile={profile}
+                        deactivateEditMode={deactivateEditMode}
+                    />
                     : <ProfileData profile={profile} isOwner={isOwner} setEditMode={setEditMode}/>
             }
         </div>
@@ -40,16 +45,13 @@ const ProfileData = ({profile}) => {
             <div>{profile.lookingForAJobDescription ? profile.lookingForAJobDescription : ''}</div>
 
             <div className={style.contacts}>
-                {Object.keys(profile.contacts).map(key => {
-
-                    if(profile.contacts[key]) {
-                        return (
-                            <a href={profile.contacts[key]} key={key} className={style.contacts__link}>
-                                {key}
-                            </a>
-                        );
-                    }
-                })}
+                {
+                    Object.keys(profile.contacts).map(key => {
+                        if (profile.contacts[key]) {
+                            return <a href={profile.contacts[key]} key={key} className={style.contacts__link}>{key}</a>
+                        }
+                    })
+                }
             </div>
         </div>
     );

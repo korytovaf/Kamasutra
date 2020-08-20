@@ -3,10 +3,10 @@ import styles from './FormControls.module.css'
 import {Field} from "redux-form";
 
 export const Textarea = ({input, meta: {touched, error}}) => {
-    return (<div className={styles.wrapper}>
+    return (
+        <div className={styles.inputBox}>
             <textarea className={`${touched && error ? styles.error : ""} ${styles.textarea}`} {...input}/>
-            {
-                touched &&
+            { touched &&
                 error ? <span className={styles.error}>{error}</span> : undefined
             }
         </div>
@@ -14,10 +14,10 @@ export const Textarea = ({input, meta: {touched, error}}) => {
 }
 
 export const Input = ({input, meta: {touched, error}}) => {
-    return (<div className={styles.wrapper}>
+    return (
+        <div className={styles.inputBox}>
             <input className={`${touched && error ? styles.error : ""} ${styles.input}`} {...input}/>
-            {
-                touched &&
+            { touched &&
                 error ? <span className={styles.error}>{error}</span> : undefined
             }
         </div>
@@ -34,6 +34,5 @@ export const createField = (className, component, name, type, validate, htmlFor,
             validate={validate}
             id={id}
         />
-        <label htmlFor={htmlFor}>{label}</label>
     </>
 );

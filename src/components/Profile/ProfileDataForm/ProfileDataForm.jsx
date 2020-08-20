@@ -9,17 +9,19 @@ const ProfileData = ({ handleSubmit, profile, error, deactivateEditMode }) => {
 
     return (
         <form onSubmit={handleSubmit} className={style.form}>
-            <h3>Настройки</h3>
 
             {createField('', Input, 'aboutMe', 'text', [])}
             {createField('', Input, 'fullName', 'text', [])}
-            {createField('', 'input', 'lookingForAJob', 'checkbox', [], 'lookingForAJob', 'В поиске работы', 'lookingForAJob')}
+            <div>
+                {createField('', 'input', 'lookingForAJob', 'checkbox', [], '', '', 'lookingForAJob')}
+                <label className={style.checkbox} htmlFor='lookingForAJob'>В поиске работы</label>
+            </div>
             {createField('', Textarea, 'lookingForAJobDescription', 'text', [])}
 
             {Object.keys(profile.contacts).map(key => {
                 return (
-                    <div key={key}>
-                        <b>{key}: </b>{createField('', Input, `contacts.${key}`, 'text', [])}
+                    <div className={style.inputBox} key={key}>
+                        <b>{key}: </b>{createField('style.input', Input, `contacts.${key}`, 'text', [])}
                     </div>
                 );
             })}

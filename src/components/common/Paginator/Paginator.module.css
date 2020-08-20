@@ -12,3 +12,18 @@
     font-weight: bold;
     border-bottom: 1px solid red;
 }
+
+.paginator__button {
+    margin: 0 10px;
+    padding: 5px;
+    border: none;
+    background-color: #d7d4d4;
+    border-radius: 3px;
+    color: white;
+    transition: color .4s;
+    font-weight: bold;
+}
+
+.paginator__button:hover {
+    color: red;
+}

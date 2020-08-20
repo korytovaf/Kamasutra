@@ -24,6 +24,7 @@ const authReducer = (state = initialState, action) => {
                 login: action.payload.login,
                 email: action.payload.email,
                 isAuth: action.payload.isAuth,
+                captcha: action.payload.captcha,
             };
         }
 
@@ -41,9 +42,9 @@ const authReducer = (state = initialState, action) => {
 };
 
 
-export const setAuthUserData = (id, login, email, isAuth) => ({
+export const setAuthUserData = (id, login, email, isAuth, captcha) => ({
     type: SET_USER_DATA,
-    payload: {id, login, email, isAuth}
+    payload: {id, login, email, isAuth, captcha}
 });
 
 
@@ -81,7 +82,8 @@ export const login = (email, password, rememberMe, captcha) => async (dispatch) 
         dispatch(getAuthUser()) //отправляем запрос о том кто залогинился
     } if (data.resultCode === 10) {
         dispatch(getCaptcha());
-        let messages = data.messages.length > 0 ? data.messages[0] : 'Error';
+    } else {
+        const messages = data.messages.length > 0 ? data.messages[0] : null;
         dispatch(stopSubmit('login', {_error: messages}));
     }
 }
@@ -90,7 +92,7 @@ export const login = (email, password, rememberMe, captcha) => async (dispatch) 
 export const logout = () => async (dispatch) => {
     let data = await authAPI.Logout();
     if (data.resultCode === 0) {
-        dispatch(setAuthUserData(null, null, null, false))
+        dispatch(setAuthUserData(null, null, null, false, null ))
         dispatch(setAuthProfileMi(null))
     }
 }

@@ -119,4 +119,15 @@
     border: 1px solid #d7d4d4;
 }
 
+.checkbox {
+    margin-left: 10px;
+    font: 400 13.3333px Arial;
+}
+
+.inputBox {
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: stretch;
+}
+
 

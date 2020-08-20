@@ -34,9 +34,7 @@ const User = (props) => {
                                         <div className={s.user__status}>{user.status}</div>
                                     </div>
 
-                                    {!props.isAuth
-                                        ? ''
-                                        :
+                                    { props.isAuth && props.profileMi.userId !== user.id &&
                                         <div className={s.user__friend}>
 
                                             <div className={s.user__friend_true}>

@@ -24,6 +24,8 @@ class UsersContainer extends React.Component {
         this.props.requestUsers(pageNumber, pageSize)
     }
 
+
+
     render() {
         return <User
             users={this.props.users}
@@ -36,6 +38,7 @@ class UsersContainer extends React.Component {
             followingInProgress={this.props.followingInProgress}
             isFetching={this.props.isFetching}
             isAuth={this.props.isAuth}
+            profileMi={this.props.profileMi}
         />
     }
 }
@@ -49,6 +52,7 @@ const mapStateToProps = (state) => {
         isFetching: getIsFetching(state),
         followingInProgress: getFollowingInProgress(state),
         isAuth: getIsAuth(state),
+        profileMi: state.auth.profileMi,
     };
 }
 
