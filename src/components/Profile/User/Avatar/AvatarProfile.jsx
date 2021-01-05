@@ -1,5 +1,5 @@
 import style from "../User.module.css";
-import avatarPlaceholder from "../../../../asseds/img/placeholder.jpg";
+import avatarPlaceholder from "../../../../asseds/img/placeholder.png";
 import React from "react";
 
 const AvatarProfile = ({ profile, isOwner, onMainPhotoSelected, editMode }) => {

@@ -49,10 +49,10 @@ const ProfileData = ({profile}) => {
                     Object.keys(profile.contacts).map(key => {
                         if (profile.contacts[key]) {
                             return <a href={profile.contacts[key]} key={key} className={style.contacts__link}>{key}</a>
-                        }
+                        } return null
                     })
                 }
             </div>
         </div>
-    );
+    )
 }

@@ -23,7 +23,7 @@
 .button {
     width: 30px;
     height: 30px;
-    background-image: url("../../../asseds/img/send_message.png");
+    /*background-image: url("../../../asseds/img/send_message.png");*/
     background-size: cover;
     background-color: transparent;
     border: none;
